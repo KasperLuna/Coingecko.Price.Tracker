@@ -1,4 +1,5 @@
 # Python Coingecko Price Tracker:
+A python command line application for displaying crypto prices in real-time.
 
 1. download the latest Python install (https://www.python.org/downloads/)
 2. install python (make sure to enable PATH variable in install)

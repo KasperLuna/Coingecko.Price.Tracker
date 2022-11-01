@@ -30,12 +30,12 @@ g = "\033[0;32;40m"  # Green
 x = "\033[0m"  # Reset
 
 
-def listKeys(toList):
-    return list(toList.keys())
+def list_keys(to_list):
+    return list(to_list.keys())
 
 
-def listVals(toList):
-    return list(toList.values())
+def list_vals(to_list):
+    return list(to_list.values())
 
 
 def trend(num):
@@ -66,8 +66,8 @@ def enter(coin, pair, source, currency):
 
 
 while True:
-    from os import system
-    system('cls')
+    import os
+    os.system('cls' if os.name == 'nt' else 'clear')
     table.clear_rows()
 
     import datetime
@@ -75,15 +75,15 @@ while True:
     dateTimeNow = d.strftime("%d-%m-%Y %H:%M:%S")
     print(dateTimeNow)
 
-    coins = cg.get_price(ids=listVals(usd_coins),
+    coins = cg.get_price(ids=list_vals(usd_coins),
                          vs_currencies='usd', include_24hr_change='true')
-    axie = cg.get_price(ids=listVals(php_coins), vs_currencies='php',
+    axie = cg.get_price(ids=list_vals(php_coins), vs_currencies='php',
                         include_24hr_change='true')
     usdt = cg.get_price(ids='tether', vs_currencies='php')['tether']['php']
     table.field_names = ["Pair", "Price", "24h%"]
 
-    enter(listVals(usd_coins), listKeys(usd_coins), coins, "usd")
-    enter(listVals(php_coins), listKeys(php_coins), axie, "php")
+    enter(list_vals(usd_coins), list_keys(usd_coins), coins, "usd")
+    enter(list_vals(php_coins), list_keys(php_coins), axie, "php")
 
     print(table)
     print('')
